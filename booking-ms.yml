@@ -2,13 +2,15 @@ spring:
   application:
    name: booking-ms
   datasource:
-   url: jdbc:mysql://localhost:3306/bookingdb
-   username: root
-   password: alok 
+   url: jdbc:h2:mem:bookingdb
+   username: sa
+   password: password
+   driverClassName: org.h2.Driver
   jpa:
-   properties:
-    hibernate:
-     dialect: org.hibernate.dialect.MySQLDialect
+#   properties:
+#    hibernate:
+#     dialect: org.hibernate.dialect.MySQLDialect
+   database-platform: org.hibernate.dialect.H2Dialect
    show-sql: true  
    hibernate:
     ddl-auto: update
