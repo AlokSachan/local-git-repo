@@ -16,7 +16,7 @@
 #    ddl-auto: update
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/microservices
+    url: jdbc:mysql://localhost:3306/bookingdb
     username: root
     password: Limited@2025
     driver-class-name: com.mysql.cj.jdbc.Driver
