@@ -1,25 +1,40 @@
+#spring:
+# application:
+#  name: flight-data-ms
+# datasource:
+#   url: jdbc:h2:mem:flightdb
+#   username: sa
+#   password: password
+# jpa:
+##   properties:
+##    hibernate:
+##     dialect: org.hibernate.dialect.MySQLDialect
+#   database-platform: org.hibernate.dialect.H2Dialect
+#   show-sql: true
+#   hibernate:
+#    ddl-auto: update
+
 spring:
- application:
-  name: flight-data-ms
- datasource:
-   url: jdbc:h2:mem:flightdb
-   username: sa
-   password: password 
- jpa:
-#   properties:
-#    hibernate:
-#     dialect: org.hibernate.dialect.MySQLDialect
-   database-platform: org.hibernate.dialect.H2Dialect
-   show-sql: true  
-   hibernate:
-    ddl-auto: update
- config:
-  server:
-   git:
-    default-label: master
-   import: configserver:http://localhost:8888
+  datasource:
+    url: jdbc:mysql://localhost:3306/flightdb
+    username: root
+    password: Limited@2025
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: flight-data-ms
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  config:
+    server:
+      git:
+        default-label: master
+      import: configserver:http://localhost:8888
 server:
- port: 8081
+  port: 8081
 zipkin:
- tracing:
-  endpoint: http://localhost:9411
+  tracing:
+    endpoint: http://localhost:9411
